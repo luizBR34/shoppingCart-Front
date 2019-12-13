@@ -1,0 +1,37 @@
+
+<div class="absoluto">
+
+  <fieldset>
+  <legend>{{description}}</legend>
+      
+  <form [formGroup]="loginFormulario" #lform="ngForm">
+    <p>
+      <mat-form-field class="full-width">
+          <input matInput 
+                 formControlName="email"
+                 type="text"
+                 placeholder="E-Mail:"
+                 required>
+          <mat-error *ngIf="f.email.errors?.required && f.email.touched">E-Mail is mandatory!</mat-error>
+      </mat-form-field>
+  </p>
+  
+  <p>
+      <mat-form-field class="full-width">
+          <input matInput 
+                  formControlName="senha"
+                  type="password"
+                  placeholder="Password:"
+                  required>
+          <mat-error *ngIf="f.senha.errors?.required && f.senha.touched">Password is mandatory!</mat-error>
+      </mat-form-field>
+  </p>
+</form>
+  
+    <button type="submit" mat-raised-button class="waves-effect waves-light btn margem-butao" (click)="signin()" [disabled]="lform.form.invalid">Sign In</button>
+    <button mat-raised-button class="waves-effect waves-light btn margem-butao" (click)="signup()">Sign Up</button>
+    <button mat-raised-button class="waves-effect waves-light btn margem-butao" (click)="items()">New Items</button>
+
+  </fieldset>
+  
+  </div>
