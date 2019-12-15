@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialogRef } from "@angular/material";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from '../models/usuario';
 import { BackService } from '../services/back.service';
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
   @ViewChild('lform') loginFormDirective; //Acessa o formulario do template em HTML
 
   constructor(private fb: FormBuilder,
+    private dialogRef: MatDialogRef<LoginComponent>,
     private service: BackService) { 
     this.description = "Please identify yourself or register new items";
     this.createForm();
@@ -54,6 +56,7 @@ export class LoginComponent implements OnInit {
     
 
     this.loginFormDirective.resetForm(); //Reseta o template
+    this.dialogRef.close(this.loginFormulario.value);
   }
 
 
