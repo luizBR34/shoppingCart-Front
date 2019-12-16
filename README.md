@@ -8,10 +8,13 @@ NodeJS installed.
 
 ## Dependencies
 
-Run `npm install --save @angular/material@6.4.7 
-npm install --save @angular/cdk@6.4.7 
-npm install --save @angular/animations@6.1.7
-npm install --save hammerjs@2.0.8` to download the dependencies.
+Run `npm install --save @angular/material@6.4.7`,
+
+`npm install --save @angular/cdk@6.4.7`, 
+
+`npm install --save @angular/animations@6.1.7`,
+
+`npm install --save hammerjs@2.0.8` to download the dependencies.
 
 ## Build
 
