@@ -17,12 +17,14 @@ import { ProcessHttpmsgService } from './services/process-httpmsg.service';
 import { StoreComponent } from './store/store.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    StoreComponent
+    StoreComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,36 @@
+<div class="absoluto">
+
+    <fieldset>
+    <legend>{{description}}</legend>
+        
+    <form [formGroup]="itemsFormulario" #iform="ngForm">
+      <p>
+        <mat-form-field class="full-width">
+            <input matInput 
+                   formControlName="nome"
+                   type="text"
+                   placeholder="Nome:"
+                   required>
+            <mat-error *ngIf="f.nome.errors?.required && f.nome.touched">Nome is mandatory!</mat-error>
+        </mat-form-field>
+    </p>
+    
+    <p>
+        <mat-form-field class="full-width">
+            <input matInput 
+                    formControlName="valor"
+                    type="text"
+                    placeholder="Value:"
+                    required>
+            <mat-error *ngIf="f.valor.errors?.required && f.valor.touched">Value is mandatory!</mat-error>
+        </mat-form-field>
+    </p>
+  </form>
+    
+      <button type="submit" mat-raised-button class="waves-effect waves-light btn margem-butao" (click)="save()" [disabled]="lform.form.invalid">Save</button>
+      <button mat-raised-button class="waves-effect waves-light btn margem-butao" (click)="back()">Back</button>
+  
+    </fieldset>
+    
+    </div>
+  

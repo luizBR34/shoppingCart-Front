@@ -3,6 +3,7 @@ import { MatDialogRef } from "@angular/material";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from '../models/usuario';
 import { BackService } from '../services/back.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private dialogRef: MatDialogRef<LoginComponent>,
-    private service: BackService) { 
+    private service: BackService,
+    private router: Router) { 
     this.description = "Please identify yourself or register new items";
     this.createForm();
   }
@@ -55,16 +57,17 @@ export class LoginComponent implements OnInit {
     });
     
 
-    this.loginFormDirective.resetForm(); //Reseta o template
+    this.loginFormDirective.resetForm();
     this.dialogRef.close(this.loginFormulario.value);
   }
 
 
+  register() {
 
-  signup() {
+    this.loginFormDirective.resetForm(); 
+    this.dialogRef.close(this.loginFormulario.value);
 
-
-
+    this.router.navigateByUrl('/register');
   }
 
 }

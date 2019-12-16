@@ -44,18 +44,22 @@ export class BackService {
     }
 
 
+
     getItems(): Observable<Item[]> {
 
       const url = `${baseURL}/listarItems/`;
 
-      const httpOptions = {
-        headers: new HttpHeaders({
-          'content-type': 'application/json'
-        })
-      };
-
       return this.http.get<Item[]>(url, httpOptions)
-      .pipe(retry(3), //Se houver erro, ira re-enviar a requisiçao 3X
-      catchError(this.ProcessHTTPMsgService.handleError)); //Se houver um error HTTP será manipulado pelo método handleError
+      .pipe(//retry(3),
+      catchError(this.ProcessHTTPMsgService.handleError));
     }
+
+
+
+    postCadastraItem(item: Item): Observable<boolean> {
+      const url = `${baseURL}/cadastrarItem/`;
+      return this.http.post<boolean>(url, item, httpOptions)
+      .pipe(catchError(this.ProcessHTTPMsgService.handleError));
+    }
+
 }

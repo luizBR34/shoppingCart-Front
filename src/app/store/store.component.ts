@@ -50,13 +50,10 @@ export class StoreComponent implements OnInit {
 
 
   openLoginForm(): void {
-
     let dialogRef = this.dialog.open(LoginComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(
       data => console.log("Dialog output:", data)
     ); 
   }
-
-
 }
